@@ -1,6 +1,7 @@
 # Placing Objects and Handling 3D Interaction
 
-Place virtual content at tracked, real-world locations, and enable the user to interact with virtual content by using gestures. 
+Place virtual content at tracked, real-world locations, and enable the user to interact with virtual content by using gestures. (Built from Apple example.)
+Now adding sounds to the objects to explore spatial audio.
 
 ## Overview
 
