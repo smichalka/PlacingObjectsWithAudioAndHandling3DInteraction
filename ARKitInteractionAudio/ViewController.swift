@@ -22,6 +22,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
     @IBOutlet weak var upperControlsView: UIView!
+    
+    /// Source for audio playback
+    var audioSource: SCNAudioSource!
 
     // MARK: - UI Elements
     
@@ -74,6 +77,9 @@ class ViewController: UIViewController {
         statusViewController.restartExperienceHandler = { [unowned self] in
             self.restartExperience()
         }
+        
+        // Set up audio playback
+        setUpAudio()
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(showVirtualObjectSelectionViewController))
         // Set the delegate to ensure this gesture is only used when there are no virtual objects in the scene.
@@ -148,6 +154,27 @@ class ViewController: UIViewController {
             addObjectButton.isHidden = true
             objectsViewController?.dismiss(animated: false, completion: nil)
         }
+    }
+    
+    
+    // MARK: - Sound
+    /// Sets up the audio for playback.
+    /// - Tag: SetUpAudio
+    private func setUpAudio() {
+        // Instantiate the audio source
+        audioSource = SCNAudioSource(fileNamed: "fireplace.mp3")!
+        // As an environmental sound layer, audio should play indefinitely
+        audioSource.loops = true
+        // Decode the audio from disk ahead of time to prevent a delay in playback
+        audioSource.load()
+    }
+    /// Plays a sound on the `objectNode` using SceneKit's positional audio
+    /// - Tag: AddAudioPlayer
+    private func playSound() {
+        // Ensure there is only one audio player
+        //objectNode.removeAllAudioPlayers()
+        // Create a player from the source and add it to `objectNode`
+        //objectNode.addAudioPlayer(SCNAudioPlayer(source: audioSource))
     }
     
     // MARK: - Error handling
