@@ -43,6 +43,11 @@ extension ViewController: ARSCNViewDelegate, ARSessionDelegate {
             if let objectAtAnchor = self.virtualObjectLoader.loadedObjects.first(where: { $0.anchor == anchor }) {
                 objectAtAnchor.simdPosition = anchor.transform.translation
                 objectAtAnchor.anchor = anchor
+                
+                // Ensure there is only one audio player
+                objectAtAnchor.removeAllAudioPlayers()
+                // Create a player from the source and add it to `objectNode`
+                objectAtAnchor.addAudioPlayer(SCNAudioPlayer(source: self.audioSource))
             }
         }
     }

@@ -162,11 +162,12 @@ class ViewController: UIViewController {
     /// - Tag: SetUpAudio
     private func setUpAudio() {
         // Instantiate the audio source
-        audioSource = SCNAudioSource(fileNamed: "fireplace.mp3")!
+        audioSource = SCNAudioSource(fileNamed: "Track 16.mp3")!
         // As an environmental sound layer, audio should play indefinitely
         audioSource.loops = true
         // Decode the audio from disk ahead of time to prevent a delay in playback
         audioSource.load()
+        print("in setup function")
     }
     /// Plays a sound on the `objectNode` using SceneKit's positional audio
     /// - Tag: AddAudioPlayer

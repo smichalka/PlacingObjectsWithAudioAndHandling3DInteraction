@@ -29,10 +29,6 @@ extension ViewController: VirtualObjectSelectionViewControllerDelegate {
         virtualObjectInteraction.selectedObject = virtualObject
         virtualObject.isHidden = false
         
-        // Ensure there is only one audio player
-        virtualObject.removeAllAudioPlayers()
-        // Create a player from the source and add it to `objectNode`
-        virtualObject.addAudioPlayer(SCNAudioPlayer(source: audioSource))
         
     }
     
