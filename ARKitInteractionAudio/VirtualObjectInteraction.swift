@@ -31,6 +31,12 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
      */
     var selectedObject: VirtualObject?
     
+    /**
+     The object that is randomly selected to be the target (emits a sound)
+     The `targetObject` is compared to the tapped object.
+     */
+    var targetObject: VirtualObject?
+    
     /// The object that is tracked for use by the pan and rotation gestures.
     var trackedObject: VirtualObject? {
         didSet {
@@ -134,9 +140,32 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
             // If an object exists at the tap location, select it.
             selectedObject = tappedObject
             
-            // Toggle sound of object
+            var audioSource: SCNAudioSource!
+            // Check to see if it is the right object
+            if selectedObject == targetObject {
+                print("yay!")
+                // Toggle sound of object
+                toggleObjectSound(tappedObject)
+                audioSource = SCNAudioSource(fileNamed: "Funk.aiff")!
+                playSoundOnObjectOnce(tappedObject, audioSource)
+                
+                // Get rid of target object
+                targetObject = nil
+                
+                
+            } else {
+                print("nope")
+                print(selectedObject as Any)
+                print(targetObject as Any)
+                
+                audioSource = SCNAudioSource(fileNamed: "Basso.aiff")!
+                playSoundOnObjectOnce(tappedObject, audioSource)
+            }
+                
             
-            toggleObjectSound(tappedObject)
+            
+            
+            
             
         } else if let object = selectedObject {
             
@@ -181,12 +210,21 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
         if ((object.audioPlayers.isEmpty)){
             // if nothing is playing on object
             var audioSource: SCNAudioSource!
-            audioSource = SCNAudioSource(fileNamed: "fireplace.mp3")!
+            audioSource = SCNAudioSource(fileNamed: "Track 16.mp3")!
+            // play indefinitely
+            audioSource.loops = true
             object.addAudioPlayer(SCNAudioPlayer(source: audioSource))
         } else {
             // if playing, remove all audio
             object.removeAllAudioPlayers()
         }
+    }
+    /// - Tag: PlaySoundOnObject
+    func playSoundOnObjectOnce(_ object: VirtualObject, _ audioSource : SCNAudioSource){
+        audioSource.loops = false
+        object.removeAllAudioPlayers()
+        object.addAudioPlayer(SCNAudioPlayer(source: audioSource))
+        
     }
     
     // MARK: - Update object position

@@ -45,9 +45,9 @@ extension ViewController: ARSCNViewDelegate, ARSessionDelegate {
                 objectAtAnchor.anchor = anchor
                 
                 // Ensure there is only one audio player
-                objectAtAnchor.removeAllAudioPlayers()
+                //objectAtAnchor.removeAllAudioPlayers()
                 // Create a player from the source and add it to `objectNode`
-                objectAtAnchor.addAudioPlayer(SCNAudioPlayer(source: self.audioSource))
+                //objectAtAnchor.addAudioPlayer(SCNAudioPlayer(source: self.audioSource))
             }
         }
     }

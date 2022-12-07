@@ -41,7 +41,28 @@ extension ViewController: UIGestureRecognizerDelegate {
         
         print("starting random audio game")
         
+        virtualObjectInteraction.targetObject = virtualObjectLoader.loadedObjects.randomElement()
+        turnOnObjectSound(virtualObjectInteraction.targetObject!)
+            
     }
+    
+    // MARK: - Update object sound
+    /// - Tag: ToggleObjectSound
+    func turnOnObjectSound(_ object: VirtualObject) {
+        if ((!object.audioPlayers.isEmpty)){
+            // if playing, remove all audio
+            object.removeAllAudioPlayers()
+        }
+        // if nothing is playing on object
+        var audioSource: SCNAudioSource!
+        audioSource = SCNAudioSource(fileNamed: "fireplace.mp3")!
+        // Play sound indefinitely
+        audioSource.loops = true
+        object.addAudioPlayer(SCNAudioPlayer(source: audioSource))
+    }
+    
+    
+    
     
     /// - Tag: restartExperience
     func restartExperience() {
