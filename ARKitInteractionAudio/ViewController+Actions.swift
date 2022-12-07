@@ -34,6 +34,15 @@ extension ViewController: UIGestureRecognizerDelegate {
         return true
     }
     
+    /// Start the random audio object game
+    @IBAction func startRandomAudioGame() {
+        //Ensure that we're not loading an object right now
+        guard !startRandomAudioButton.isHidden && !virtualObjectLoader.isLoading else {return}
+        
+        print("starting random audio game")
+        
+    }
+    
     /// - Tag: restartExperience
     func restartExperience() {
         guard isRestartAvailable, !virtualObjectLoader.isLoading else { return }
@@ -44,6 +53,7 @@ extension ViewController: UIGestureRecognizerDelegate {
         virtualObjectLoader.removeAllVirtualObjects()
         addObjectButton.setImage(#imageLiteral(resourceName: "add"), for: [])
         addObjectButton.setImage(#imageLiteral(resourceName: "addPressed"), for: [.highlighted])
+        
 
         resetTracking()
 

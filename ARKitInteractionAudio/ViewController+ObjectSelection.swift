@@ -142,6 +142,9 @@ extension ViewController: VirtualObjectSelectionViewControllerDelegate {
         addObjectButton.setImage(#imageLiteral(resourceName: "addPressed"), for: [.highlighted])
 
         addObjectButton.isEnabled = true
+        
+        startRandomAudioButton.isEnabled = true
+        
         isRestartAvailable = true
     }
 }

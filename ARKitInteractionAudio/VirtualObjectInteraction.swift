@@ -64,6 +64,7 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
         sceneView.addGestureRecognizer(panGesture)
     }
     
+    
     // MARK: - Gesture Actions
     
     @objc
@@ -132,6 +133,11 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
             
             // If an object exists at the tap location, select it.
             selectedObject = tappedObject
+            
+            // Toggle sound of object
+            
+            toggleObjectSound(tappedObject)
+            
         } else if let object = selectedObject {
             
             // Otherwise, move the selected object to its new position at the tap location.
@@ -167,6 +173,20 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
         }
         
         return nil
+    }
+    
+    // MARK: - Update object sound
+    /// - Tag: ToggleObjectSound
+    func toggleObjectSound(_ object: VirtualObject) {
+        if ((object.audioPlayers.isEmpty)){
+            // if nothing is playing on object
+            var audioSource: SCNAudioSource!
+            audioSource = SCNAudioSource(fileNamed: "fireplace.mp3")!
+            object.addAudioPlayer(SCNAudioPlayer(source: audioSource))
+        } else {
+            // if playing, remove all audio
+            object.removeAllAudioPlayers()
+        }
     }
     
     // MARK: - Update object position

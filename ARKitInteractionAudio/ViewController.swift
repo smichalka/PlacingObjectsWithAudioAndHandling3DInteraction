@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var addObjectButton: UIButton!
     
+    @IBOutlet weak var startRandomAudioButton: UIButton!
+    
     @IBOutlet weak var blurView: UIVisualEffectView!
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
@@ -144,6 +146,7 @@ class ViewController: UIViewController {
             }
             if !coachingOverlay.isActive {
                 addObjectButton.isHidden = false
+                startRandomAudioButton.isHidden = false
             }
             statusViewController.cancelScheduledMessage(for: .focusSquare)
         } else {
@@ -152,6 +155,7 @@ class ViewController: UIViewController {
                 self.sceneView.pointOfView?.addChildNode(self.focusSquare)
             }
             addObjectButton.isHidden = true
+            startRandomAudioButton.isHidden = true
             objectsViewController?.dismiss(animated: false, completion: nil)
         }
     }
