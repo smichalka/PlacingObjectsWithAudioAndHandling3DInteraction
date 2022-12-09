@@ -33,6 +33,8 @@
 		50100D202941501900E478BB /* Frog.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 50100D142941501900E478BB /* Frog.aiff */; };
 		50100D212941501900E478BB /* Bottle.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 50100D152941501900E478BB /* Bottle.aiff */; };
 		50100D222941501900E478BB /* Blow.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 50100D162941501900E478BB /* Blow.aiff */; };
+		50100D2529415B7B00E478BB /* AlternativeVisualDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50100D2429415B7B00E478BB /* AlternativeVisualDisplay.swift */; };
+		50100D2729429F6500E478BB /* SoundFXManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50100D2629429F6500E478BB /* SoundFXManager.swift */; };
 		C41366B91EB80DD400EC054A /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41366B81EB80DD400EC054A /* StatusViewController.swift */; };
 		C42A71BD1E9C0AF200944367 /* FocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42A71BC1E9C0AF200944367 /* FocusSquare.swift */; };
 		C46356671EF9CC500080C8D9 /* VirtualObjectARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46356661EF9CC480080C8D9 /* VirtualObjectARView.swift */; };
@@ -75,6 +77,8 @@
 		50100D142941501900E478BB /* Frog.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Frog.aiff; sourceTree = "<group>"; };
 		50100D152941501900E478BB /* Bottle.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Bottle.aiff; sourceTree = "<group>"; };
 		50100D162941501900E478BB /* Blow.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Blow.aiff; sourceTree = "<group>"; };
+		50100D2429415B7B00E478BB /* AlternativeVisualDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternativeVisualDisplay.swift; sourceTree = "<group>"; };
+		50100D2629429F6500E478BB /* SoundFXManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundFXManager.swift; sourceTree = "<group>"; };
 		C41366B81EB80DD400EC054A /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		C42A71BC1E9C0AF200944367 /* FocusSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusSquare.swift; sourceTree = "<group>"; };
 		C46356651EF9CB1A0080C8D9 /* VirtualObjectLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObjectLoader.swift; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 			children = (
 				C41366B81EB80DD400EC054A /* StatusViewController.swift */,
 				147062631F06FA790003EE03 /* VirtualObjectSelection.swift */,
+				50100D2429415B7B00E478BB /* AlternativeVisualDisplay.swift */,
 			);
 			path = "Additional View Controllers";
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 				1488324B1EFC3EBF0043E0AB /* Additional View Controllers */,
 				1488324A1EFC3E9C0043E0AB /* Utilities */,
 				1488324C1EFC3ED00043E0AB /* Resources */,
+				50100D2829429F8800E478BB /* AudioHelpers */,
 			);
 			path = ARKitInteractionAudio;
 			sourceTree = "<group>";
@@ -197,6 +203,14 @@
 				50100D05293F042D00E478BB /* fireplace.mp3 */,
 			);
 			path = Sounds;
+			sourceTree = "<group>";
+		};
+		50100D2829429F8800E478BB /* AudioHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				50100D2629429F6500E478BB /* SoundFXManager.swift */,
+			);
+			path = AudioHelpers;
 			sourceTree = "<group>";
 		};
 		616626D1A5AEF839B8BB5535 /* LICENSE */ = {
@@ -319,7 +333,9 @@
 				1488323F1EFC378A0043E0AB /* ViewController+Actions.swift in Sources */,
 				3929C48E1E89EC2C00E00B60 /* ViewController.swift in Sources */,
 				C41366B91EB80DD400EC054A /* StatusViewController.swift in Sources */,
+				50100D2729429F6500E478BB /* SoundFXManager.swift in Sources */,
 				39C0B95A1E9C6B1F003FCA0C /* Utilities.swift in Sources */,
+				50100D2529415B7B00E478BB /* AlternativeVisualDisplay.swift in Sources */,
 				147062641F06FA790003EE03 /* VirtualObjectSelection.swift in Sources */,
 				E187105E2253C46A003B54DA /* ViewController+CoachingOverlay.swift in Sources */,
 				C8C12A711F29277B00B011FE /* ViewController+ARSCNViewDelegate.swift in Sources */,
