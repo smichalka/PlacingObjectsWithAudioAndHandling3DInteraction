@@ -18,23 +18,10 @@
 		3929C49F1E89EE4400E00B60 /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 3929C49E1E89EE4400E00B60 /* Models.scnassets */; };
 		39C0B95A1E9C6B1F003FCA0C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C0B9581E9C6B1F003FCA0C /* Utilities.swift */; };
 		39D8DC1B1E8ADAE600386B05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D8DC1A1E8ADAE600386B05 /* LaunchScreen.storyboard */; };
-		50100D06293F042D00E478BB /* fireplace.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 50100D05293F042D00E478BB /* fireplace.mp3 */; };
-		50100D08293FD0C100E478BB /* Track 16.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 50100D07293FD0C100E478BB /* Track 16.mp3 */; };
-		50100D0A29414FD900E478BB /* Basso.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 50100D0929414FD900E478BB /* Basso.aiff */; };
-		50100D172941501900E478BB /* Morse.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 50100D0B2941501900E478BB /* Morse.aiff */; };
-		50100D182941501900E478BB /* Ping.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 50100D0C2941501900E478BB /* Ping.aiff */; };
-		50100D192941501900E478BB /* Glass.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 50100D0D2941501900E478BB /* Glass.aiff */; };
-		50100D1A2941501900E478BB /* Pop.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 50100D0E2941501900E478BB /* Pop.aiff */; };
-		50100D1B2941501900E478BB /* Purr.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 50100D0F2941501900E478BB /* Purr.aiff */; };
-		50100D1C2941501900E478BB /* Sosumi.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 50100D102941501900E478BB /* Sosumi.aiff */; };
-		50100D1D2941501900E478BB /* Submarine.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 50100D112941501900E478BB /* Submarine.aiff */; };
-		50100D1E2941501900E478BB /* Tink.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 50100D122941501900E478BB /* Tink.aiff */; };
-		50100D1F2941501900E478BB /* Funk.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 50100D132941501900E478BB /* Funk.aiff */; };
-		50100D202941501900E478BB /* Frog.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 50100D142941501900E478BB /* Frog.aiff */; };
-		50100D212941501900E478BB /* Bottle.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 50100D152941501900E478BB /* Bottle.aiff */; };
-		50100D222941501900E478BB /* Blow.aiff in Resources */ = {isa = PBXBuildFile; fileRef = 50100D162941501900E478BB /* Blow.aiff */; };
+		500D37712948430E000CED3D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500D37702948430E000CED3D /* HomeViewController.swift */; };
 		50100D2529415B7B00E478BB /* AlternativeVisualDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50100D2429415B7B00E478BB /* AlternativeVisualDisplay.swift */; };
 		50100D2729429F6500E478BB /* SoundFXManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50100D2629429F6500E478BB /* SoundFXManager.swift */; };
+		505C78F02942FDD700DD1EDA /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 505C78EF2942FDD700DD1EDA /* Sounds */; };
 		C41366B91EB80DD400EC054A /* StatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41366B81EB80DD400EC054A /* StatusViewController.swift */; };
 		C42A71BD1E9C0AF200944367 /* FocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42A71BC1E9C0AF200944367 /* FocusSquare.swift */; };
 		C46356671EF9CC500080C8D9 /* VirtualObjectARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46356661EF9CC480080C8D9 /* VirtualObjectARView.swift */; };
@@ -62,23 +49,10 @@
 		3929C49E1E89EE4400E00B60 /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
 		39C0B9581E9C6B1F003FCA0C /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		39D8DC1A1E8ADAE600386B05 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		50100D05293F042D00E478BB /* fireplace.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fireplace.mp3; sourceTree = "<group>"; };
-		50100D07293FD0C100E478BB /* Track 16.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Track 16.mp3"; sourceTree = "<group>"; };
-		50100D0929414FD900E478BB /* Basso.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Basso.aiff; sourceTree = "<group>"; };
-		50100D0B2941501900E478BB /* Morse.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Morse.aiff; sourceTree = "<group>"; };
-		50100D0C2941501900E478BB /* Ping.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Ping.aiff; sourceTree = "<group>"; };
-		50100D0D2941501900E478BB /* Glass.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Glass.aiff; sourceTree = "<group>"; };
-		50100D0E2941501900E478BB /* Pop.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Pop.aiff; sourceTree = "<group>"; };
-		50100D0F2941501900E478BB /* Purr.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Purr.aiff; sourceTree = "<group>"; };
-		50100D102941501900E478BB /* Sosumi.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Sosumi.aiff; sourceTree = "<group>"; };
-		50100D112941501900E478BB /* Submarine.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Submarine.aiff; sourceTree = "<group>"; };
-		50100D122941501900E478BB /* Tink.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Tink.aiff; sourceTree = "<group>"; };
-		50100D132941501900E478BB /* Funk.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Funk.aiff; sourceTree = "<group>"; };
-		50100D142941501900E478BB /* Frog.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Frog.aiff; sourceTree = "<group>"; };
-		50100D152941501900E478BB /* Bottle.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Bottle.aiff; sourceTree = "<group>"; };
-		50100D162941501900E478BB /* Blow.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = Blow.aiff; sourceTree = "<group>"; };
+		500D37702948430E000CED3D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		50100D2429415B7B00E478BB /* AlternativeVisualDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternativeVisualDisplay.swift; sourceTree = "<group>"; };
 		50100D2629429F6500E478BB /* SoundFXManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundFXManager.swift; sourceTree = "<group>"; };
+		505C78EF2942FDD700DD1EDA /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
 		C41366B81EB80DD400EC054A /* StatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewController.swift; sourceTree = "<group>"; };
 		C42A71BC1E9C0AF200944367 /* FocusSquare.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusSquare.swift; sourceTree = "<group>"; };
 		C46356651EF9CB1A0080C8D9 /* VirtualObjectLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObjectLoader.swift; sourceTree = "<group>"; };
@@ -132,7 +106,7 @@
 		1488324C1EFC3ED00043E0AB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				50100D232941502600E478BB /* Sounds */,
+				505C78EF2942FDD700DD1EDA /* Sounds */,
 				3929C49E1E89EE4400E00B60 /* Models.scnassets */,
 				3929C4921E89EC2C00E00B60 /* Assets.xcassets */,
 				3929C4971E89EC2C00E00B60 /* Info.plist */,
@@ -145,6 +119,7 @@
 		3929C47F1E89EC2C00E00B60 = {
 			isa = PBXGroup;
 			children = (
+				500D37702948430E000CED3D /* HomeViewController.swift */,
 				11063F3B1EBE651B0033EE6D /* README.md */,
 				3929C48A1E89EC2C00E00B60 /* ARKitInteractionAudio */,
 				3929C4891E89EC2C00E00B60 /* Products */,
@@ -181,28 +156,6 @@
 				50100D2829429F8800E478BB /* AudioHelpers */,
 			);
 			path = ARKitInteractionAudio;
-			sourceTree = "<group>";
-		};
-		50100D232941502600E478BB /* Sounds */ = {
-			isa = PBXGroup;
-			children = (
-				50100D162941501900E478BB /* Blow.aiff */,
-				50100D152941501900E478BB /* Bottle.aiff */,
-				50100D142941501900E478BB /* Frog.aiff */,
-				50100D132941501900E478BB /* Funk.aiff */,
-				50100D0D2941501900E478BB /* Glass.aiff */,
-				50100D0B2941501900E478BB /* Morse.aiff */,
-				50100D0C2941501900E478BB /* Ping.aiff */,
-				50100D0E2941501900E478BB /* Pop.aiff */,
-				50100D0F2941501900E478BB /* Purr.aiff */,
-				50100D102941501900E478BB /* Sosumi.aiff */,
-				50100D112941501900E478BB /* Submarine.aiff */,
-				50100D122941501900E478BB /* Tink.aiff */,
-				50100D0929414FD900E478BB /* Basso.aiff */,
-				50100D07293FD0C100E478BB /* Track 16.mp3 */,
-				50100D05293F042D00E478BB /* fireplace.mp3 */,
-			);
-			path = Sounds;
 			sourceTree = "<group>";
 		};
 		50100D2829429F8800E478BB /* AudioHelpers */ = {
@@ -299,24 +252,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50100D1E2941501900E478BB /* Tink.aiff in Resources */,
-				50100D212941501900E478BB /* Bottle.aiff in Resources */,
-				50100D222941501900E478BB /* Blow.aiff in Resources */,
-				50100D1F2941501900E478BB /* Funk.aiff in Resources */,
-				50100D1A2941501900E478BB /* Pop.aiff in Resources */,
 				3929C49F1E89EE4400E00B60 /* Models.scnassets in Resources */,
-				50100D1B2941501900E478BB /* Purr.aiff in Resources */,
 				39D8DC1B1E8ADAE600386B05 /* LaunchScreen.storyboard in Resources */,
-				50100D1C2941501900E478BB /* Sosumi.aiff in Resources */,
-				50100D192941501900E478BB /* Glass.aiff in Resources */,
-				50100D06293F042D00E478BB /* fireplace.mp3 in Resources */,
-				50100D182941501900E478BB /* Ping.aiff in Resources */,
-				50100D1D2941501900E478BB /* Submarine.aiff in Resources */,
+				505C78F02942FDD700DD1EDA /* Sounds in Resources */,
 				3929C4931E89EC2C00E00B60 /* Assets.xcassets in Resources */,
-				50100D172941501900E478BB /* Morse.aiff in Resources */,
-				50100D0A29414FD900E478BB /* Basso.aiff in Resources */,
-				50100D08293FD0C100E478BB /* Track 16.mp3 in Resources */,
-				50100D202941501900E478BB /* Frog.aiff in Resources */,
 				3929C4911E89EC2C00E00B60 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,6 +269,7 @@
 			files = (
 				C812D8681F47628300344E73 /* ThresholdPanGesture.swift in Sources */,
 				11BD822A1F09D750003F11C8 /* ViewController+ObjectSelection.swift in Sources */,
+				500D37712948430E000CED3D /* HomeViewController.swift in Sources */,
 				1488323F1EFC378A0043E0AB /* ViewController+Actions.swift in Sources */,
 				3929C48E1E89EC2C00E00B60 /* ViewController.swift in Sources */,
 				C41366B91EB80DD400EC054A /* StatusViewController.swift in Sources */,
