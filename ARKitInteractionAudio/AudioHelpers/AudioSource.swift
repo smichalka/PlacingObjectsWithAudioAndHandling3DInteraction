@@ -15,37 +15,9 @@ import ARKit
 
 
 class AudioSource : SCNAudioSource {
-    
-    /// The model name derived from the `referenceURL`.
-    //var soundName: String {
-      //  return url.lastPathComponent.replacingOccurrences(of: ".aiff", with: "")
-    //}
-    
-    
 }
 
 extension AudioSource {
-    
-    static let availableSounds: [AudioSource] = {
-        
-  //      let soundsURL = Bundle.main.path(ofType: "aiff", inDirectory: "Sounds")
-        let soundsURL = Bundle.main.url(forResource: "Sounds", withExtension: nil)!
-        
-        print(soundsURL)
-        
-        let fileEnumerator = FileManager().enumerator(at: soundsURL, includingPropertiesForKeys: [])!
-        
-        return fileEnumerator.compactMap { element in
-            let url = element as! URL
-            
-            //TODO: add other possible formats here
-
-            guard url.pathExtension == "aiff"  else { return nil }
-            
-            print(url.deletingPathExtension().lastPathComponent)
-            return AudioSource(url: url)
-        }
-    }()
     
     // Create a dictionary to store the file names and the audio source
     static let availableSoundsDict: [String: AudioSource] = {
@@ -58,16 +30,15 @@ extension AudioSource {
         fileURLs = fileEnumerator.compactMap { element in
             let url = element as! URL
             if url.pathExtension == "aiff" || url.pathExtension == "mp3" {
-                print("adding: a url ")
+                //print("adding: a url ")
                 return url
             } else {
-                print("nil")
+                //print("nil")
                 return nil
             }
         }
         for url in fileURLs {
-            var fileName = url.deletingPathExtension().lastPathComponent
-            availableSoundsDict[fileName] = AudioSource(url: url)
+            availableSoundsDict[url.deletingPathExtension().lastPathComponent] = AudioSource(url: url)
         }
         return availableSoundsDict
         

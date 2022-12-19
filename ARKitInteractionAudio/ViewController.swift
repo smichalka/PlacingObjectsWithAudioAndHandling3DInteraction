@@ -25,9 +25,11 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var upperControlsView: UIView!
     
+    // MARK: - Audio Setup
     /// Source for audio playback
-    //var audioSource: SCNAudioSource!
-    //let soundFXManager = SoundFXManager()
+    /// Dictionary of all available sound effects
+    let availableSounds = AudioSource.availableSoundsDict
+    let soundFXManager = SoundFXManager()
 
     // MARK: - UI Elements
     
@@ -63,8 +65,7 @@ class ViewController: UIViewController {
         return sceneView.session
     }
     
-    /// Dictionary of all available sound effects
-    let availableSounds = AudioSource.availableSoundsDict
+
     
     // MARK: - View Controller Life Cycle
     
@@ -171,7 +172,7 @@ class ViewController: UIViewController {
     /// - Tag: SetUpAudio
     private func setUpAudio() {
         // Load the sounds ahead of time
-        print("Maybe preloading sounds")
+        print("Preloading sounds")
         for sound in availableSounds {
             print(sound.key)
             sound.value.load()

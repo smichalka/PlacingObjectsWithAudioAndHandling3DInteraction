@@ -148,10 +148,8 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
             // Check to see if it is the right object
             if selectedObject == targetObject {
                 print("yay!")
-                // Toggle sound of object
-                //audioSource = SCNAudioSource(fileNamed: "Funk.aiff")!
-                //audioSourceLoader.toggleObjectSound(tappedObject, audioSource)
-                soundFxManager.playSoundOnObjectOnce(tappedObject, "played using manager")
+                //Play happy sound
+                soundFxManager.playSoundOnObjectOnce(tappedObject, self.viewController.availableSounds["Purr"]!)
                 
                 // Get rid of target object
                 targetObject = nil
@@ -162,8 +160,8 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
                 print(selectedObject as Any)
                 print(targetObject as Any)
                 
-                //audioSource = SCNAudioSource(fileNamed: "Basso.aiff")!
-                //audioSourceLoader.playSoundOnObjectOnce(tappedObject, audioSource)
+                //Play sad sound once
+                soundFxManager.playSoundOnObjectOnce(tappedObject, self.viewController.availableSounds["Tink"]!)
             }
                 
             
@@ -207,32 +205,6 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
         
         return nil
     }
-    
-    // MARK: - Update object sound
-    /// - Tag: ToggleObjectSound
-    ///
-    /**
-    func toggleObjectSound(_ object: VirtualObject) {
-        if ((object.audioPlayers.isEmpty)){
-            // if nothing is playing on object
-            var audioSource: SCNAudioSource!
-            audioSource = SCNAudioSource(fileNamed: "Track 16.mp3")!
-            // play indefinitely
-            audioSource.loops = true
-            object.addAudioPlayer(SCNAudioPlayer(source: audioSource))
-        } else {
-            // if playing, remove all audio
-            object.removeAllAudioPlayers()
-        }
-    }
-    /// - Tag: PlaySoundOnObject
-    func playSoundOnObjectOnce(_ object: VirtualObject, _ audioSource : SCNAudioSource){
-        audioSource.loops = false
-        object.removeAllAudioPlayers()
-        object.addAudioPlayer(SCNAudioPlayer(source: audioSource))
-        
-    }
-     */
     
     // MARK: - Update object position
     /// - Tag: DragVirtualObject
