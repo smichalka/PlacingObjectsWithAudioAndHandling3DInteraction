@@ -19,6 +19,8 @@
 		39C0B95A1E9C6B1F003FCA0C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C0B9581E9C6B1F003FCA0C /* Utilities.swift */; };
 		39D8DC1B1E8ADAE600386B05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39D8DC1A1E8ADAE600386B05 /* LaunchScreen.storyboard */; };
 		500D37712948430E000CED3D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500D37702948430E000CED3D /* HomeViewController.swift */; };
+		500D3773294A9EE4000CED3D /* AudioSourceLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500D3772294A9EE4000CED3D /* AudioSourceLoader.swift */; };
+		500D3775294A9F4F000CED3D /* AudioSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500D3774294A9F4F000CED3D /* AudioSource.swift */; };
 		50100D2529415B7B00E478BB /* AlternativeVisualDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50100D2429415B7B00E478BB /* AlternativeVisualDisplay.swift */; };
 		50100D2729429F6500E478BB /* SoundFXManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50100D2629429F6500E478BB /* SoundFXManager.swift */; };
 		505C78F02942FDD700DD1EDA /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 505C78EF2942FDD700DD1EDA /* Sounds */; };
@@ -50,6 +52,8 @@
 		39C0B9581E9C6B1F003FCA0C /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		39D8DC1A1E8ADAE600386B05 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		500D37702948430E000CED3D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		500D3772294A9EE4000CED3D /* AudioSourceLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSourceLoader.swift; sourceTree = "<group>"; };
+		500D3774294A9F4F000CED3D /* AudioSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSource.swift; sourceTree = "<group>"; };
 		50100D2429415B7B00E478BB /* AlternativeVisualDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlternativeVisualDisplay.swift; sourceTree = "<group>"; };
 		50100D2629429F6500E478BB /* SoundFXManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundFXManager.swift; sourceTree = "<group>"; };
 		505C78EF2942FDD700DD1EDA /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
@@ -162,6 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				50100D2629429F6500E478BB /* SoundFXManager.swift */,
+				500D3772294A9EE4000CED3D /* AudioSourceLoader.swift */,
+				500D3774294A9F4F000CED3D /* AudioSource.swift */,
 			);
 			path = AudioHelpers;
 			sourceTree = "<group>";
@@ -283,9 +289,11 @@
 				C46356671EF9CC500080C8D9 /* VirtualObjectARView.swift in Sources */,
 				148832411EFC3B250043E0AB /* FocusSquareSegment.swift in Sources */,
 				C8D71A001F3B7D3D0086AD64 /* VirtualObject.swift in Sources */,
+				500D3773294A9EE4000CED3D /* AudioSourceLoader.swift in Sources */,
 				C42A71BD1E9C0AF200944367 /* FocusSquare.swift in Sources */,
 				3929C48C1E89EC2C00E00B60 /* AppDelegate.swift in Sources */,
 				C46356681EF9CC530080C8D9 /* VirtualObjectLoader.swift in Sources */,
+				500D3775294A9F4F000CED3D /* AudioSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

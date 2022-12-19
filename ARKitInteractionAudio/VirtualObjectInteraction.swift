@@ -45,6 +45,9 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
         }
     }
     
+    let soundFxManager = SoundFXManager()
+
+    
     /// The tracked screen position used to update the `trackedObject`'s position.
     private var currentTrackingPosition: CGPoint?
     
@@ -135,19 +138,20 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
     func didTap(_ gesture: UITapGestureRecognizer) {
         let touchLocation = gesture.location(in: sceneView)
         
+        
         if let tappedObject = sceneView.virtualObject(at: touchLocation) {
             
             // If an object exists at the tap location, select it.
             selectedObject = tappedObject
             
-            var audioSource: SCNAudioSource!
+            //var audioSource: SCNAudioSource!
             // Check to see if it is the right object
             if selectedObject == targetObject {
                 print("yay!")
                 // Toggle sound of object
-                toggleObjectSound(tappedObject)
-                audioSource = SCNAudioSource(fileNamed: "Funk.aiff")!
-                playSoundOnObjectOnce(tappedObject, audioSource)
+                //audioSource = SCNAudioSource(fileNamed: "Funk.aiff")!
+                //audioSourceLoader.toggleObjectSound(tappedObject, audioSource)
+                soundFxManager.playSoundOnObjectOnce(tappedObject, "played using manager")
                 
                 // Get rid of target object
                 targetObject = nil
@@ -158,8 +162,8 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
                 print(selectedObject as Any)
                 print(targetObject as Any)
                 
-                audioSource = SCNAudioSource(fileNamed: "Basso.aiff")!
-                playSoundOnObjectOnce(tappedObject, audioSource)
+                //audioSource = SCNAudioSource(fileNamed: "Basso.aiff")!
+                //audioSourceLoader.playSoundOnObjectOnce(tappedObject, audioSource)
             }
                 
             
@@ -206,6 +210,8 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
     
     // MARK: - Update object sound
     /// - Tag: ToggleObjectSound
+    ///
+    /**
     func toggleObjectSound(_ object: VirtualObject) {
         if ((object.audioPlayers.isEmpty)){
             // if nothing is playing on object
@@ -226,6 +232,7 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
         object.addAudioPlayer(SCNAudioPlayer(source: audioSource))
         
     }
+     */
     
     // MARK: - Update object position
     /// - Tag: DragVirtualObject

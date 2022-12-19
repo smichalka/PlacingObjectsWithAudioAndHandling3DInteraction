@@ -26,7 +26,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var upperControlsView: UIView!
     
     /// Source for audio playback
-    var audioSource: SCNAudioSource!
+    //var audioSource: SCNAudioSource!
+    //let soundFXManager = SoundFXManager()
 
     // MARK: - UI Elements
     
@@ -62,7 +63,8 @@ class ViewController: UIViewController {
         return sceneView.session
     }
     
-    
+    /// Dictionary of all available sound effects
+    let availableSounds = AudioSource.availableSoundsDict
     
     // MARK: - View Controller Life Cycle
     
@@ -168,27 +170,12 @@ class ViewController: UIViewController {
     /// Sets up the audio for playback.
     /// - Tag: SetUpAudio
     private func setUpAudio() {
-        // Instantiate the audio source
-        //audioSource = SCNAudioSource(fileNamed: "Track 16.mp3")!
-        
-        audioSource = AudioSource.availableSounds.first!
-        
-        // As an environmental sound layer, audio should play indefinitely
-        audioSource.loops = true
-        // Decode the audio from disk ahead of time to prevent a delay in playback
-        audioSource.load()
-        
-        
-        
-        print("in setup function")
-    }
-    /// Plays a sound on the `objectNode` using SceneKit's positional audio
-    /// - Tag: AddAudioPlayer
-    private func playSound() {
-        // Ensure there is only one audio player
-        //objectNode.removeAllAudioPlayers()
-        // Create a player from the source and add it to `objectNode`
-        //objectNode.addAudioPlayer(SCNAudioPlayer(source: audioSource))
+        // Load the sounds ahead of time
+        print("Maybe preloading sounds")
+        for sound in availableSounds {
+            print(sound.key)
+            sound.value.load()
+        }
     }
     
     // MARK: - Error handling

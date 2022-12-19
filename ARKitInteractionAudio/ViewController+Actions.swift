@@ -42,7 +42,7 @@ extension ViewController: UIGestureRecognizerDelegate {
         print("starting random audio game")
         
         virtualObjectInteraction.targetObject = virtualObjectLoader.loadedObjects.randomElement()
-        turnOnObjectSound(virtualObjectInteraction.targetObject!)
+        //turnOnObjectSound(virtualObjectInteraction.targetObject!)
             
     }
     

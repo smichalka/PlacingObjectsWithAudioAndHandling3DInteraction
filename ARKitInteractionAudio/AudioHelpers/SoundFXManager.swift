@@ -3,7 +3,7 @@
 //  ARKitInteractionAudio
 //
 //  Created by Sam Michalka on 12/9/22.
-//  Copyright © 2022 Apple. All rights reserved.
+//  Copyright © 2022. All rights reserved.
 //
 // Abstract:
 // Load and manage sound effects
@@ -15,17 +15,40 @@ import ARKit
 /**
  Loads multiple 'AudioSource's to be able to use them quickly once needed.
  */
-class AudioSource : SCNAudioSource {
-    
-}
 
-extension AudioSource {
-    static let availableSounds: [AudioSource] = {
-        
-  //      let soundsURL = Bundle.main.path(ofType: "aiff", inDirectory: "Sounds")
+class SoundFXManager{
+    
+    func listAvailableSounds() -> [String] {
+        print("Listing available sounds")
+        var availableSounds : [String] = []
         let soundsURL = Bundle.main.url(forResource: "Sounds", withExtension: nil)!
+        print(soundsURL)
         
-        //print(soundsURL)
+        let fileEnumerator = FileManager().enumerator(at: soundsURL, includingPropertiesForKeys: [])!
+        
+        availableSounds = fileEnumerator.compactMap { element in
+            let url = element as! URL
+            
+            //TODO: add other possible formats here
+            if url.pathExtension == "aiff" || url.pathExtension == "mp3" {
+                //availableSounds.append(url.deletingPathExtension().lastPathComponent)
+                print("adding: : ")
+                print(url.deletingPathExtension().lastPathComponent)
+                return String(url.deletingPathExtension().lastPathComponent)
+            } else {
+                print("nil")
+                return nil
+            }
+        }
+        return availableSounds.sorted()
+    }
+    
+    
+    func listAvailableSoundsOld() -> [String] {
+        print("Listing available sounds")
+//        var availableSounds : [String] = []
+        let soundsURL = Bundle.main.url(forResource: "Sounds", withExtension: nil)!
+        print(soundsURL)
         
         let fileEnumerator = FileManager().enumerator(at: soundsURL, includingPropertiesForKeys: [])!
         
@@ -33,40 +56,57 @@ extension AudioSource {
             let url = element as! URL
             
             //TODO: add other possible formats here
-
-            guard url.pathExtension == "aiff"  else { return nil }
-            
-            print(url)
-
-            return AudioSource(url: url)
-        }
-    }()
-}
-
-class AudioSourceLoader {
-    /// Source for audio playback
-    var audioSource: SCNAudioSource!
-    private(set) var loadedSounds = [AudioSource]()
-    
-    private(set) var isLoading = false
-    
-    // MARK: - Loading sound
-
-    /**
-     Loads a `AudioSource`  maybe? on a background queue.
-    */
-    func loadSounds(_ object: AudioSource, loadedHandler: @escaping (AudioSource) -> Void) {
-        isLoading = true
-        loadedSounds.append(object)
-        
-        // Load the content into the reference node.
-        DispatchQueue.global(qos: .userInitiated).async {
-            object.load()
-            self.isLoading = false
-            loadedHandler(object)
+            if url.pathExtension == "aiff" || url.pathExtension == "mp3" {
+                //availableSounds.append(url.deletingPathExtension().lastPathComponent)
+                print("adding: : ")
+                print(url.deletingPathExtension().lastPathComponent)
+                return String(url.deletingPathExtension().lastPathComponent)
+            } else {
+                print("nil")
+                return nil
+            }
         }
     }
-
+    
+    
+    
+    // MARK: - Update object sound
+    /// - Tag: ToggleObjectSound
+    func toggleObjectSound(_ object: VirtualObject,_ audioSource : SCNAudioSource) {
+        if ((object.audioPlayers.isEmpty)){
+            // if nothing is playing on object
+            //var audioSource: SCNAudioSource!
+            //audioSource = SCNAudioSource(fileNamed: "Track 16.mp3")!
+            // play indefinitely
+            audioSource.loops = true
+            object.addAudioPlayer(SCNAudioPlayer(source: audioSource))
+        } else {
+            // if playing, remove all audio
+            object.removeAllAudioPlayers()
+        }
+    }
+    /// - Tag: PlaySoundOnObject
+    func playSoundOnObjectOnce(_ object: VirtualObject, _ soundType : String){
+        //audioSource = loadedSounds.first
+        //audioSource.loops = false
+        print(soundType)
+        object.removeAllAudioPlayers()
+        //object.addAudioPlayer(SCNAudioPlayer(source: audioSource))
+        let audioSource = SCNAudioSource(fileNamed: "Frog.aiff")!
+        // play indefinitely
+        audioSource.loops = true
+        object.addAudioPlayer(SCNAudioPlayer(source: audioSource))
+        
+    }
+    /**
+     func playSoundOnObjectOnce(_ object: VirtualObject, _ audioSource : SCNAudioSource){
+     audioSource.loops = false
+     object.removeAllAudioPlayers()
+     object.addAudioPlayer(SCNAudioPlayer(source: audioSource))
+     
+     }
+     */
+    
     
     
 }

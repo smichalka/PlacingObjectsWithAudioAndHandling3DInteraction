@@ -47,7 +47,16 @@ extension ViewController: ARSCNViewDelegate, ARSessionDelegate {
                 // Ensure there is only one audio player
                 //objectAtAnchor.removeAllAudioPlayers()
                 // Create a player from the source and add it to `objectNode`
-                objectAtAnchor.addAudioPlayer(SCNAudioPlayer(source: self.audioSource))
+                //objectAtAnchor.addAudioPlayer(SCNAudioPlayer(source: self.audioSource))
+                let soundFXManager = SoundFXManager()
+                
+                //soundFXManager.toggleObjectSound(objectAtAnchor, AudioSource.availableSounds.first(where: {$0.hashValue == 10739721216})!)
+                print(AudioSource.availableSounds[4].hashValue)
+                print(AudioSource.availableSounds[4].hash)
+                print(AudioSource.availableSounds[4].description.utf8CString)
+                print(AudioSource.availableSounds[4].description.self)
+                print(AudioSource.availableSounds[4].description.hashValue)
+                print(AudioSource.availableSounds[4].description.isEmpty)
             }
         }
     }
