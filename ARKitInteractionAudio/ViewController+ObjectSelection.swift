@@ -28,9 +28,17 @@ extension ViewController: VirtualObjectSelectionViewControllerDelegate {
         virtualObject.raycast = trackedRaycast
         virtualObjectInteraction.selectedObject = virtualObject
         virtualObject.isHidden = false
-        
+    }
+    
+    /** Places specified virtual object in the scene, placed at a position relative to the camera and unaffected by gravity.
+     - Tag: PlaceFloatingVirtualObject */
+    func placeFloatingVirtualObject(_ virtualObject: VirtualObject,_ position: SCNVector3) {
+        virtualObject.position = position
+        virtualObject.physicsBody?.isAffectedByGravity = false
+        virtualObject.isHidden = false
         
     }
+    
     
     // - Tag: GetTrackedRaycast
     func createTrackedRaycastAndSet3DPosition(of virtualObject: VirtualObject, from query: ARRaycastQuery,
@@ -121,6 +129,32 @@ extension ViewController: VirtualObjectSelectionViewControllerDelegate {
             session.remove(anchor: anchor)
         }
     }
+    
+    // - Tag: loadDefaultVirtualObject
+    func loadDefaultVirtualObject() {
+        let virtualObjects = VirtualObject.availableObjects
+        print(virtualObjects)
+        let object = virtualObjects.first!
+        
+        virtualObjectLoader.loadVirtualObject(object, loadedHandler: { [unowned self] loadedObject in
+            
+            do {
+                let scene = try SCNScene(url: object.referenceURL, options: nil)
+                self.sceneView.prepare([scene], completionHandler: { _ in
+                    DispatchQueue.main.async {
+                        self.hideObjectLoadingUI()
+                        //self.placeVirtualObject(loadedObject)
+                        self.placeFloatingVirtualObject(loadedObject,SCNVector3(x: 0.1, y: 0.1, z: -0.5))
+                    }
+                })
+            } catch {
+                fatalError("Failed to load SCNScene from object.referenceURL")
+            }
+            
+        })
+        displayObjectLoadingUI()
+    }
+    
 
     // MARK: Object Loading UI
 

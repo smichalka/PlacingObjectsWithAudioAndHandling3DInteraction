@@ -21,8 +21,11 @@ extension ViewController: UIGestureRecognizerDelegate {
         // Ensure adding objects is an available action and we are not loading another object (to avoid concurrent modifications of the scene).
         guard !addObjectButton.isHidden && !virtualObjectLoader.isLoading else { return }
         
+        // Otherwise segue into controls to place objects manually
         statusViewController.cancelScheduledMessage(for: .contentPlacement)
         performSegue(withIdentifier: SegueIdentifier.showObjects.rawValue, sender: addObjectButton)
+        
+
     }
     
     /// Determines if the tap gesture for presenting the `VirtualObjectSelectionViewController` should be used.
@@ -41,9 +44,104 @@ extension ViewController: UIGestureRecognizerDelegate {
         
         print("starting random audio game")
         
-        virtualObjectInteraction.targetObject = virtualObjectLoader.loadedObjects.randomElement()
+        loadDefaultVirtualObject()
         
-        soundFXManager.playSoundOnObjectLoop(virtualObjectInteraction.targetObject!, availableSounds["Frog"]!)
+        // If no objects place and in autoload, then place virtual objects
+        if virtualObjectLoader.loadedObjects.count == 0 && autoPlaceObjects {
+            //
+            placeObjectsInAir()
+            
+        }
+        
+        // Must have at least 1 object to play
+        if virtualObjectLoader.loadedObjects.count > 0 {
+            
+            // Set a random object to the target and start making a sound
+            virtualObjectInteraction.targetObject = virtualObjectLoader.loadedObjects.randomElement()
+            soundFXManager.playSoundOnObjectLoop(virtualObjectInteraction.targetObject!, availableSounds[soundFXManager.soundFXAssignments["Target"] ?? "Pop"]!)
+            
+        }
+    }
+    
+    
+    
+    //SWM: This is currently not working, the object exists, but is not being rendered
+    func placeObjectsInAir() {
+        print("Placing objects in air")
+        let positionVectors = calculateObjectPositions(numObjects: numberOfAutoObjects)
+        for positionVector in positionVectors {
+            let virtualObject = VirtualObject()
+            virtualObject.name = "Box"
+            let box = SCNBox(width: 0.1, height: 0.1, length: 0.1, chamferRadius: 0.05)
+            let material = SCNMaterial()
+            material.diffuse.contents = UIColor.blue
+            virtualObject.geometry = box
+            virtualObject.geometry?.materials = [material]
+            placeFloatingVirtualObject(virtualObject,positionVector)
+            
+            //virtualObject.position = positionVector
+            //virtualObject.isHidden = false
+            virtualObject.shouldUpdateAnchor = false
+            sceneView.scene.rootNode.addChildNode(virtualObject)
+            
+        }
+        
+            //let virtualObject = VirtualObject.availableObjects.first!
+            //virtualObject.position = SCNVector3(x: 0, y: 0.1, z: -0.5)
+        //print(virtualObject.modelName)
+        //print("name: ", virtualObject.name as Any)
+
+        
+            //placeFloatingVirtualObject(virtualObject, x: 0.0 , y: 0.1, z: -0.5)
+        
+        
+        /**
+        guard var virtualObject = VirtualObject.availableObjects.first(where: {$0.name == defaultVirtualObjectName}) else  {
+            guard var virtualObject = VirtualObject.availableObjects.first else {
+                // SWM: This might not be right
+                print("Failed to load virtual object with name ", defaultVirtualObjectName, " attempting to make box")
+                var virtualObject = VirtualObject()
+                virtualObject.name = "Box"
+                let box = SCNBox(width: 0.2, height: 0.2, length: 0.2, chamferRadius: 0.01)
+                let material = SCNMaterial()
+                material.diffuse.contents = UIColor.green
+                virtualObject.geometry = box
+                virtualObject.geometry?.materials = [material]
+                return
+            }
+            return
+        }
+         */
+        
+        
+    }
+    func calculateObjectPositions(numObjects: Int) -> [SCNVector3] {
+        
+        // Put objects in a line in front of the person at a set distance apart
+        let distanceApart = Float(0.3) //distance from middle of next object in meters
+        let distanceFromCamera = Float(-0.5) //distance from camera (should be negative to be in front)
+        let heightRelativeToCamera = Float( 0.1) // height above camera (or 0 when starting game?)
+        var positionVectors = [SCNVector3]()
+        
+        if numObjects % 2 == 1 {
+            // If there are an odd number of objects, put one directly in front
+            positionVectors.append(SCNVector3(x: 0.0, y: heightRelativeToCamera, z: distanceFromCamera))
+            for i in 1...(numObjects / 2) {
+                positionVectors.append(SCNVector3(x: -Float(i) * distanceApart, y: heightRelativeToCamera, z: distanceFromCamera))
+                positionVectors.append(SCNVector3(x: Float(i) * distanceApart, y: heightRelativeToCamera, z: distanceFromCamera))
+            }
+        } else {
+            // If there an even number of objects, center them
+            for i in 1...(numObjects / 2) {
+                positionVectors.append(SCNVector3(x: (-Float(i - 1) * distanceApart) - (distanceApart / Float(2)), y: heightRelativeToCamera, z: distanceFromCamera))
+                positionVectors.append(SCNVector3(x: Float(i - 1) * distanceApart + (distanceApart / Float(2)), y: heightRelativeToCamera, z: distanceFromCamera))
+            }
+            
+        }
+        
+        return positionVectors
+        
+        
     }
     
     /// - Tag: restartExperience
@@ -99,6 +197,7 @@ extension ViewController: UIPopoverPresentationControllerDelegate {
             guard let index = VirtualObject.availableObjects.firstIndex(of: object) else { continue }
             objectsViewController.selectedVirtualObjectRows.insert(index)
         }
+    
     }
     
     func popoverPresentationControllerDidDismissPopover(_ popoverPresentationController: UIPopoverPresentationController) {

@@ -149,26 +149,18 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
             if selectedObject == targetObject {
                 print("yay!")
                 //Play happy sound
-                soundFxManager.playSoundOnObjectOnce(tappedObject, self.viewController.availableSounds["Purr"]!)
+                soundFxManager.playSoundOnObjectOnce(tappedObject, self.viewController.availableSounds[soundFxManager.soundFXAssignments["Correct"] ?? "Purr"]!)
                 
                 // Get rid of target object
                 targetObject = nil
-                
-                
             } else {
                 print("nope")
                 print(selectedObject as Any)
                 print(targetObject as Any)
                 
                 //Play sad sound once
-                soundFxManager.playSoundOnObjectOnce(tappedObject, self.viewController.availableSounds["Tink"]!)
+                soundFxManager.playSoundOnObjectOnce(tappedObject, self.viewController.availableSounds[soundFxManager.soundFXAssignments["Incorrect"] ?? "Tink"]!)
             }
-                
-            
-            
-            
-            
-            
         } else if let object = selectedObject {
             
             // Otherwise, move the selected object to its new position at the tap location.

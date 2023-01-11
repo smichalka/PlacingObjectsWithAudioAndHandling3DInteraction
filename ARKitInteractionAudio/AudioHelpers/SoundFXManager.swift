@@ -18,6 +18,10 @@ import ARKit
 
 class SoundFXManager{
     
+    // MARK: - Manage sounds for different events
+    var soundFXAssignments = ["Target":"Submarine", "Correct":"Funk", "Incorrect":"Glass"]
+    
+    
     // MARK: - Update object sound
     /// - Tag: ToggleObjectSound
     func toggleObjectSound(_ object: VirtualObject,_ audioSource : AudioSource) {

@@ -109,9 +109,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10L-H2-s5k">
-                                <rect key="frame" x="141" y="190" width="95" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10L-H2-s5k">
+                                <rect key="frame" x="100" y="250" width="200" height="100"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Start">
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
@@ -120,11 +119,13 @@
                                     <action selector="onStartButton:" destination="7ig-T3-Jwu" eventType="touchUpInside" id="nJR-ZZ-T3i"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xul-PU-jug">
-                                <rect key="frame" x="105" y="347" width="166" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xul-PU-jug">
+                                <rect key="frame" x="78" y="448" width="218" height="57"/>
+                                <accessibility key="accessibilityConfiguration" hint="Place to choose options for game" label="Configure Settings"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Configure Settings"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Configure Settings" buttonSize="large">
+                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle2"/>
+                                </buttonConfiguration>
                                 <connections>
                                     <action selector="onConfigureButton:" destination="7ig-T3-Jwu" eventType="touchUpInside" id="ui3-VO-lv1"/>
                                 </connections>
@@ -132,6 +133,16 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ZSZ-O5-tXq"/>
                         <color key="backgroundColor" systemColor="tertiarySystemFillColor"/>
+                        <constraints>
+                            <constraint firstItem="10L-H2-s5k" firstAttribute="centerY" secondItem="ZSZ-O5-tXq" secondAttribute="centerY" id="6Hh-HC-yQf"/>
+                            <constraint firstItem="ZSZ-O5-tXq" firstAttribute="bottom" secondItem="10L-H2-s5k" secondAttribute="bottom" constant="317" id="7RL-4p-JCW"/>
+                            <constraint firstItem="10L-H2-s5k" firstAttribute="centerY" secondItem="ZSZ-O5-tXq" secondAttribute="centerY" id="RPy-so-KsY"/>
+                            <constraint firstItem="10L-H2-s5k" firstAttribute="centerY" secondItem="ZSZ-O5-tXq" secondAttribute="centerY" id="pCk-iM-Red"/>
+                            <constraint firstItem="Xul-PU-jug" firstAttribute="centerX" secondItem="ZSZ-O5-tXq" secondAttribute="centerX" id="pjS-Om-dpf"/>
+                            <constraint firstItem="10L-H2-s5k" firstAttribute="centerX" secondItem="ZSZ-O5-tXq" secondAttribute="centerX" id="uZU-Cr-38Y"/>
+                            <constraint firstItem="Xul-PU-jug" firstAttribute="centerX" secondItem="ZSZ-O5-tXq" secondAttribute="centerX" id="wNs-nJ-lab"/>
+                            <constraint firstItem="10L-H2-s5k" firstAttribute="centerX" secondItem="ZSZ-O5-tXq" secondAttribute="centerX" id="yhj-uD-KkM"/>
+                        </constraints>
                     </view>
                     <connections>
                         <segue destination="BV1-FR-VrT" kind="presentation" identifier="homeToMainActivity" id="dkQ-Hz-i1g"/>

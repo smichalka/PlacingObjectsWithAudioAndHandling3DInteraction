@@ -25,6 +25,14 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var upperControlsView: UIView!
     
+    
+    // MARK: - Setup Configuration
+    
+    var autoPlaceObjects = true
+    var numberOfAutoObjects = 4
+    var defaultVirtualObjectName = "cup"
+    
+    
     // MARK: - Audio Setup
     /// Source for audio playback
     /// Dictionary of all available sound effects
@@ -152,7 +160,7 @@ class ViewController: UIViewController {
             }
             if !coachingOverlay.isActive {
                 addObjectButton.isHidden = false
-                startRandomAudioButton.isHidden = false
+                //startRandomAudioButton.isHidden = false
             }
             statusViewController.cancelScheduledMessage(for: .focusSquare)
         } else {
@@ -161,7 +169,7 @@ class ViewController: UIViewController {
                 self.sceneView.pointOfView?.addChildNode(self.focusSquare)
             }
             addObjectButton.isHidden = true
-            startRandomAudioButton.isHidden = true
+            //startRandomAudioButton.isHidden = true
             objectsViewController?.dismiss(animated: false, completion: nil)
         }
     }
